@@ -13,12 +13,12 @@ const Login: React.FC = () => {
 
     const handleGoogleLogin = () => {
         console.log("Iniciando sesión con Google...");
-        
+
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg">
+        <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
+            <div className="w-full max-w-md p-8 bg-white rounded-lg shadow-lg sm:w-96 md:w-3/4 lg:w-1/2">
                 <h2 className="text-3xl font-bold text-center text-indigo-600">
                     Bienvenido
                 </h2>
@@ -26,7 +26,7 @@ const Login: React.FC = () => {
                     Inicia sesión para continuar
                 </p>
 
-                
+
                 <button
                     onClick={handleGoogleLogin}
                     className="flex items-center justify-center w-full px-4 py-2 mt-6 text-sm font-medium text-gray-700 bg-white border rounded-md shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
@@ -40,7 +40,7 @@ const Login: React.FC = () => {
                     <hr className="w-full border-gray-300" />
                 </div>
 
-                
+
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
                     <div>
                         <label
@@ -78,7 +78,7 @@ const Login: React.FC = () => {
                     </div>
                     <button
                         type="submit"
-                        className="w-full px-4 py-2 text-sm font-medium text-gray-600 bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                        className="w-full px-4 py-2 text-sm font-medium text-gray-700 bg-indigo-600 rounded-md hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Iniciar Sesión
                     </button>
