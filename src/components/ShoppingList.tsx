@@ -19,7 +19,7 @@ const ProductForm: React.FC = () => {
         e.preventDefault();
 
         if (!product.name || !product.price || !product.stock) {
-            alert("Por favor, completa todos los campos.");
+            alert("Por favor, completa todos los campos requeridos.");
             return;
         }
 
