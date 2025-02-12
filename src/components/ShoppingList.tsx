@@ -3,10 +3,9 @@ import React, { useState } from "react";
 const ProductForm: React.FC = () => {
     const [product, setProduct] = useState({
         name: "",
-        description: "",
+        quantity: "",
         price: "",
-        stock: "",
-        image: null as File | null,
+        unity: "",
     });
 
     // Manejar cambios en los inputs
@@ -18,7 +17,7 @@ const ProductForm: React.FC = () => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!product.name || !product.price || !product.stock) {
+        if (!product.name || !product.unity) {
             alert("Por favor, completa todos los campos requeridos.");
             return;
         }
@@ -28,7 +27,7 @@ const ProductForm: React.FC = () => {
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100">
-            <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg">
+            <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-lg sm:w-96 md:w-3/4 lg:w-1/2">
                 <h2 className="text-2xl font-bold text-center text-indigo-600">Registrar Producto</h2>
 
                 <form className="mt-4 space-y-4" onSubmit={handleSubmit}>
@@ -45,33 +44,22 @@ const ProductForm: React.FC = () => {
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Descripción</label>
-                        <textarea
-                            name="description"
-                            value={product.description}
+                        <label className="block text-sm font-medium text-gray-700">Cantidad</label>
+                        <input
+                            type="number"
+                            min={1}
+                            name="quantity"
+                            value={product.quantity}
                             onChange={handleChange}
                             className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-gray-700">Precio</label>
+                        <label className="block text-sm font-medium text-gray-700">Unidad</label>
                         <input
-                            type="number"
-                            name="price"
-                            value={product.price}
-                            onChange={handleChange}
-                            className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                            required
-                        />
-                    </div>
-
-                    <div>
-                        <label className="block text-sm font-medium text-gray-700">Stock</label>
-                        <input
-                            type="number"
-                            name="stock"
-                            value={product.stock}
+                            name="unity"
+                            value={product.unity}
                             onChange={handleChange}
                             className="w-full px-3 py-2 border rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
                             required
@@ -80,7 +68,7 @@ const ProductForm: React.FC = () => {
 
                     <button
                         type="submit"
-                        className="w-full px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500"
+                        className="w-full px-4 py-2 text-gray-700 bg-indigo-700 rounded-md hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                     >
                         Registrar Producto
                     </button>
