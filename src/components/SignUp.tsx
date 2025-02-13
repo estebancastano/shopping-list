@@ -1,5 +1,5 @@
+import { GoogleLogin } from "@react-oauth/google";
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { Link } from "react-router-dom";
 
 const Register: React.FC = () => {
@@ -18,10 +18,6 @@ const Register: React.FC = () => {
         console.log("Password:", password);
     };
 
-    const handleGoogleSignUp = () => {
-        console.log("Registrado con Google");
-        // Aquí podrías agregar la lógica de autenticación de Google
-    };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
@@ -34,6 +30,20 @@ const Register: React.FC = () => {
                 </p>
 
                 <form onSubmit={handleSubmit} className="mt-6 space-y-4">
+                    <div className="flex justify-center mt-4">
+                        <GoogleLogin
+                            onSuccess={(credentialResponse) => {
+                                console.log("Login Exitoso:", credentialResponse);
+                            }}
+                            onError={() => {
+                                console.log("Login con Google falló");
+                            }}
+                        />
+                    </div>
+                    <div className="relative flex items-center justify-center w-full mt-6">
+                        <span className="absolute px-2 text-gray-500 bg-white">o</span>
+                        <hr className="w-full border-gray-300" />
+                    </div>
                     <div>
                         <label
                             htmlFor="username"
@@ -110,20 +120,9 @@ const Register: React.FC = () => {
                     </button>
                 </form>
 
-                <div className="relative flex items-center justify-center w-full mt-6">
-                    <span className="absolute px-2 text-gray-500 bg-white">o</span>
-                    <hr className="w-full border-gray-300" />
-                </div>
 
-                <div className="mt-4 flex items-center justify-center">
-                    <button
-                        onClick={handleGoogleSignUp}
-                        className="flex items-center justify-center w-full px-4 py-2 mt-6 text-sm font-medium text-gray-700 bg-white border rounded-md shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                    >
-                        <FcGoogle className="w-5 h-5 mr-2" />
-                        Iniciar sesión con Google
-                    </button>
-                </div>
+
+
 
                 <p className="mt-4 text-sm text-center text-gray-600">
                     ¿Ya tienes cuenta?{" "}

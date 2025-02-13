@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
+import { GoogleLogin } from '@react-oauth/google';
 
 const Login: React.FC = () => {
     const [email, setEmail] = useState("");
@@ -11,10 +11,6 @@ const Login: React.FC = () => {
         console.log("Password:", password);
     };
 
-    const handleGoogleLogin = () => {
-        console.log("Iniciando sesión con Google...");
-
-    };
 
     return (
         <div className="flex items-center justify-center min-h-screen bg-gray-100 px-4">
@@ -27,13 +23,16 @@ const Login: React.FC = () => {
                 </p>
 
 
-                <button
-                    onClick={handleGoogleLogin}
-                    className="flex items-center justify-center w-full px-4 py-2 mt-6 text-sm font-medium text-gray-700 bg-white border rounded-md shadow-sm hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
-                >
-                    <FcGoogle className="w-5 h-5 mr-2" />
-                    Iniciar sesión con Google
-                </button>
+                <div className="flex justify-center mt-4">
+                    <GoogleLogin
+                        onSuccess={(credentialResponse) => {
+                            console.log("Login Exitoso:", credentialResponse);
+                        }}
+                        onError={() => {
+                            console.log("Login con Google falló");
+                        }}
+                    />
+                </div>
 
                 <div className="relative flex items-center justify-center w-full mt-6">
                     <span className="absolute px-2 text-gray-500 bg-white">o</span>
