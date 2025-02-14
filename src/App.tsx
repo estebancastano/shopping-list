@@ -1,14 +1,14 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Login from "./components/Login";
 import Register from "./components/SignUp";
-import ShoppingList from "./components/ShoppingList";
+import Products from "./components/Products";
 
 const App = () => (
   <Router>
     <Routes>
       <Route path="/login" element={<Login />}/>
       <Route path="/register" element={<Register />} />
-      <Route path="/list" element={<ShoppingList />} />
+      <Route path="/products" element={<Products />} />
     </Routes>
   </Router>
 );
