@@ -6,9 +6,9 @@ const App: React.FC = () => {
   return (
     <div>
       <header>
-        <h1>Mi App de Compras</h1>
+        <h1>Mis Compras</h1>
         <nav>
-          <ul className='flex flex-row gap-10 justify-center mt-10 mb-10'>
+          <ul className='flex flex-row gap-10 justify-center mt-10 mb-10 text-xl'>
             <li><Link to="/dashboard">Dashboard</Link></li>
             <li><Link to="/login">Login</Link></li>
             <li><Link to="/signup">Sign Up</Link></li>
